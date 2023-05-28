@@ -26,6 +26,9 @@ struct CarouselCell: View {
                                     if self.isOpen[i] == nil {
                                         self.isOpen[i] = false
                                     } else {
+                                        for key in isOpen.keys {
+                                            isOpen[key] = true
+                                        }
                                         self.isOpen[i]?.toggle()
                                     }
                                     

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CE03E4E72A22CDCD000D9ACD /* RegistrationMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE03E4E62A22CDCD000D9ACD /* RegistrationMenu.swift */; };
 		CE3674012A22353200B85852 /* EPodiyaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3674002A22353200B85852 /* EPodiyaApp.swift */; };
 		CE3674032A22353200B85852 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3674022A22353200B85852 /* ContentView.swift */; };
 		CE3674052A22353A00B85852 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE3674042A22353A00B85852 /* Assets.xcassets */; };
@@ -35,6 +36,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		CE03E4E62A22CDCD000D9ACD /* RegistrationMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationMenu.swift; sourceTree = "<group>"; };
 		CE3673FD2A22353200B85852 /* EPodiya.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EPodiya.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE3674002A22353200B85852 /* EPodiyaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EPodiyaApp.swift; sourceTree = "<group>"; };
 		CE3674022A22353200B85852 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -73,6 +75,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CE03E4E52A22CD5B000D9ACD /* Menus */ = {
+			isa = PBXGroup;
+			children = (
+				CE03E4E62A22CDCD000D9ACD /* RegistrationMenu.swift */,
+			);
+			path = Menus;
+			sourceTree = "<group>";
+		};
 		CE3673F42A22353200B85852 = {
 			isa = PBXGroup;
 			children = (
@@ -96,6 +106,7 @@
 		CE3673FF2A22353200B85852 /* EPodiya */ = {
 			isa = PBXGroup;
 			children = (
+				CE03E4E52A22CD5B000D9ACD /* Menus */,
 				CE495B4F2A2241AB00F73986 /* Carousel */,
 				CE3674002A22353200B85852 /* EPodiyaApp.swift */,
 				CE3674022A22353200B85852 /* ContentView.swift */,
@@ -269,6 +280,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE495B512A2241D600F73986 /* CarouselCell.swift in Sources */,
+				CE03E4E72A22CDCD000D9ACD /* RegistrationMenu.swift in Sources */,
 				CE3674032A22353200B85852 /* ContentView.swift in Sources */,
 				CE3674012A22353200B85852 /* EPodiyaApp.swift in Sources */,
 			);
