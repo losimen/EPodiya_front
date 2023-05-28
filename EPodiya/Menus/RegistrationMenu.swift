@@ -7,15 +7,19 @@
 
 import SwiftUI
 
+
 struct RegistrationMenu: View {
+    @State private var showSuccessMenu = false
+    
     var body: some View {
         ZStack {
             Image("RegistrationMenu")
                 .resizable()
                 .scaledToFill()
                 .edgesIgnoringSafeArea(.all)
+            
             Button(action: {
-                // Action to perform when the button is tapped
+                showSuccessMenu = true
             }) {
                 Text("Авторизуватись")
                     .font(.system(size: 16))
@@ -32,11 +36,16 @@ struct RegistrationMenu: View {
             }
             .padding(.top, 600.0)
         }
+        .fullScreenCover(isPresented: $showSuccessMenu) {
+            SuccessRegMenu()
+        }
     }
 }
+
 
 struct RegistrationMenu_Previews: PreviewProvider {
     static var previews: some View {
         RegistrationMenu()
+        
     }
 }

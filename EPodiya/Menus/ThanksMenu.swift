@@ -1,24 +1,23 @@
 //
-//  SuccessRegMenu.swift
+//  ThanksMenu.swift
 //  EPodiya
 //
-//  Created by Romikk on 28.05.2023.
+//  Created by Павло Коваль on 28.05.2023.
 //
 
 import SwiftUI
 
-struct SuccessRegMenu: View {
-    @State private var showMainMenu = false
+struct ThanksMenu: View {
     var body: some View {
         ZStack {
-            Image("SuccessRegMenu")
+            Image("ThanksMenu")
                 .resizable()
                 .scaledToFill()
                 .edgesIgnoringSafeArea(.all)
             Button(action: {
-                showMainMenu = true
+                // Add your button action here
             }) {
-                Text("Перейти до подій")
+                Text("Клас")
                     .foregroundColor(.black)
                     .font(.system(size: 16))
                     .fontWeight(.bold)
@@ -31,16 +30,13 @@ struct SuccessRegMenu: View {
                     .padding(EdgeInsets(top: 14, leading: 38, bottom: 14, trailing: 38))
             }
 
-            .padding(.top, 190.0)
-        }
-        .fullScreenCover(isPresented: $showMainMenu) {
-            MainMenu()
+            .padding(.top, 70.0)
         }
     }
 }
 
-struct SuccessRegMenu_Previews: PreviewProvider {
+struct ThanksMenu_Previews: PreviewProvider {
     static var previews: some View {
-        SuccessRegMenu()
+        ThanksMenu()
     }
 }
