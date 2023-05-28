@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct EventInfoMenu: View {
+    @Environment(\.openURL) var openURL
     @State private var showThanksMenu = false
     var body: some View {
         ZStack {
@@ -45,7 +46,7 @@ struct EventInfoMenu: View {
             .padding(.top, 130.0)
             
             Button(action: {
-                // Add your button action here
+                openURL(URL(string: "https://send.monobank.ua/jar/2sjLcBXh9E?fbclid=PAAaaMuf5njEPMkmCKAOIWl07SWeYlAlz1tyn0SEeLpwz597PSR0JlFS0BsyU")!)
             }) {
                 Text("Задонатити 💰")
                     .foregroundColor(.black)

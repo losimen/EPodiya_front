@@ -25,6 +25,7 @@ struct Result: Decodable {
 struct MainMenu: View {
     @State private var results = [Result]()
     @State private var showEventInfoMenu = false
+    @State private var showFormsMenu = false
     @State var isOpen: [Int: Bool] = [:]
 
     init() {
@@ -73,7 +74,7 @@ struct MainMenu: View {
                             )
                         }
                     }
-                }
+                }.padding(.top, 100)
 
                 Button(action: {
                     showEventInfoMenu = true
@@ -82,16 +83,27 @@ struct MainMenu: View {
                         .font(.system(size: 19))
                         .foregroundColor(.white)
                         .padding(0.0)
-                        .frame(width: 220, height: 52)
+                        .frame(width: 220, height: 48)
                         .background(Color(#colorLiteral(red: 0.11764705882352941, green: 0.13725490196078433, blue: 0.18823529411764706, alpha: 1)))
                         .cornerRadius(32)
-                        .padding(EdgeInsets(top: 14, leading: 38, bottom: 14, trailing: 38))
+                        .padding(EdgeInsets(top: 0, leading: 38, bottom: 0, trailing: 38))
                         .overlay(
                             RoundedRectangle(cornerRadius: 32)
                                 .stroke(Color.white, lineWidth: 0)
                         )
                 }
-                .padding(.top, 46.0) // Adjust the top padding as needed
+                .padding(.top, 76) // Adjust the top padding as needed
+                Spacer()
+                Button(action: {
+                    showFormsMenu = true
+                            }) {
+                                Text("  ")
+                                    .frame(maxWidth: .infinity)
+                                    .padding(.top, 20)
+                                    .background(Color.clear)
+                            }
+                            .padding(.bottom, UIApplication.shared.windows.first?.safeAreaInsets.bottom ?? 0) // Adjust bottom padding for safe area
+
             }
             .background(Image("MainMenu")
                 .resizable()
@@ -100,11 +112,15 @@ struct MainMenu: View {
             .sheet(isPresented: $showEventInfoMenu) {
                 EventInfoMenu()
             }
+            .sheet(isPresented: $showFormsMenu) {
+                FormMenu()
+            }
         }
     }
 
     func loadData() {
         // Perform the asynchronous data loading task
+        
         guard let url = URL(string: "https://2d74-46-96-189-238.ngrok-free.app/api/events") else {
             print("Invalid URL")
             return
@@ -146,7 +162,7 @@ struct FrontBoxView: View {
     init(id: Int, result: Result)
     {
         self.id = id
-        self.category = "Online"
+        self.category = result.name
         self.shortDescription = result.short_description
         self.imgUrl = result.photo_url
         self.credo = result.credo
@@ -158,7 +174,7 @@ struct FrontBoxView: View {
             Image("image")
                         .resizable()
                         .aspectRatio(contentMode: .fit)
-                        .frame(height: 210) // Increase the height here
+                        .frame(height: 235) // Increase the height here
                     
                     Text(category)
                         .font(.headline)
@@ -179,7 +195,6 @@ struct FrontBoxView: View {
                         
                     
                 }
-                .padding()
                 .background(Color.white)
                 .cornerRadius(16)
                 .shadow(radius: 5)
