@@ -121,7 +121,7 @@ struct MainMenu: View {
     func loadData() {
         // Perform the asynchronous data loading task
         
-        guard let url = URL(string: "https://2d74-46-96-189-238.ngrok-free.app/api/events") else {
+        guard let url = URL(string: "https://2c89-46-96-189-238.ngrok-free.app/api/events") else {
             print("Invalid URL")
             return
         }
@@ -174,7 +174,7 @@ struct FrontBoxView: View {
             Image("image")
                         .resizable()
                         .aspectRatio(contentMode: .fit)
-                        .frame(height: 235) // Increase the height here
+                        .frame(width: 354, height: 240) // Increase the height here
                     
                     Text(category)
                         .font(.headline)

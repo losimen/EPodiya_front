@@ -28,7 +28,7 @@ struct EventInfoMenu: View {
             }
             .padding(.top, 10.0)
             Button(action: {
-                // Add your button action here
+                openURL(URL(string: "https://docs.google.com/forms/d/e/1FAIpQLSeGVIjdwivE_GhHEoanLD3xYRQCHIbDRmkwz7v69Osy32Va8Q/viewform?usp=sf_link")!)
             }) {
                 Text("Стати волонтером події")
                     .foregroundColor(.black)

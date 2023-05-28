@@ -56,11 +56,62 @@ struct FormMenu: View {
                         
                 Button(action: {
                     sendMenu = true
-                    print("Name: \(name)")
-                    print("Place: \(place)")
-                    print("Data: \(data)")
-                    print("Description: \(description)")
-                    print("Category: \(category)")
+                    // 1. Create a URL object
+                        guard let url = URL(string: "https://2c89-46-96-189-238.ngrok-free.app/api/events") else {
+                            print("Invalid URL")
+                            return
+                        }
+                        
+                        // 2. Create a URLRequest and set HTTP method to "POST"
+                        var request = URLRequest(url: url)
+                        request.httpMethod = "POST"
+                        
+                        // 3. Set request's content type and body
+                        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+                        
+                        // Create a dictionary with the data
+                        let eventData: [String: Any] = [
+                            "creator_id": 2,
+                            "short_description": description,
+                            "credo": description,
+                            "city": "Lviv",
+                            "time": "2020-08-24 12:43:41",
+                            "photo_url": "ggg",
+                            "name": name,
+                            "place": place,
+                            "data": "2020-08-24 12:43:41",
+                            "description": description,
+                            "category": category,
+                        ]
+                        
+                        // Convert the dictionary to JSON data
+                        let jsonData = try? JSONSerialization.data(withJSONObject: eventData)
+                        request.httpBody = jsonData
+                        
+                        // 4. Create a URLSession instance
+                        let session = URLSession.shared
+                        
+                        // 5. Create a data task
+                        let task = session.dataTask(with: request) { (data, response, error) in
+                            if let error = error {
+                                print("Error: \(error.localizedDescription)")
+                                return
+                            }
+                            
+                            // 6. Handle the response
+                            if let httpResponse = response as? HTTPURLResponse {
+                                print("Status code: \(httpResponse.statusCode)")
+                                
+                                if let data = data {
+                                    // Handle the response data
+                                    // ...
+                                }
+                            }
+                        }
+                        
+                        // Start the data task
+                        task.resume()
+                    
                 }) {
                     Text("Зареєструвати подію")
                         .font(.system(size: 20))
