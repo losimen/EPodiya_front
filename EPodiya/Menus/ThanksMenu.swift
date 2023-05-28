@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct ThanksMenu: View {
+    @State private var showMenuMenu = false
+    
     var body: some View {
         ZStack {
             Image("ThanksMenu")
@@ -15,7 +17,7 @@ struct ThanksMenu: View {
                 .scaledToFill()
                 .edgesIgnoringSafeArea(.all)
             Button(action: {
-                // Add your button action here
+                showMenuMenu = true
             }) {
                 Text("Клас")
                     .foregroundColor(.black)
@@ -31,6 +33,10 @@ struct ThanksMenu: View {
             }
 
             .padding(.top, 70.0)
+            
+        }
+        .fullScreenCover(isPresented: $showMenuMenu) {
+            MainMenu()
         }
     }
 }
